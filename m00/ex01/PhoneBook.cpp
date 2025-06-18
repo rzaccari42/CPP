@@ -6,7 +6,7 @@
 /*   By: razaccar <razaccar@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 00:59:29 by razaccar          #+#    #+#             */
-/*   Updated: 2025/06/11 14:16:22 by razaccar         ###   ########.fr       */
+/*   Updated: 2025/06/18 15:44:06 by razaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,11 @@ static std::string	promptInput(std::string label) {
 		std::cout << std::endl << "ERROR: EOF" << std::endl;
 		std::exit(1);
 	}
-	if (input.empty()) {
+	else if (input.find_first_not_of(" \t\n\r\f\v") == std::string::npos) {
+		std::cout << "ERROR: empty input\n";
+		promptInput(label);
+    }
+	else if (input.empty()) {
 		std::cout << "ERROR: empty input" << std::endl;
 		promptInput(label);
 	}

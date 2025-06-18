@@ -6,16 +6,18 @@
 /*   By: razaccar <razaccar@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 00:51:44 by razaccar          #+#    #+#             */
-/*   Updated: 2025/06/07 03:15:12 by razaccar         ###   ########.fr       */
+/*   Updated: 2025/06/18 17:01:57 by razaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <cstdlib>
 #include <iostream>
+#include <ostream>
 #include <string>
 
 void	promptCmd(std::string& input) {
+	std::cout << "Enter command (ADD, SEARCH or EXIT)" << std::endl;
 	std::cin >> input;
 	if (std::cin.eof()) {
 		std::cout << "error: EOF" << std::endl;
