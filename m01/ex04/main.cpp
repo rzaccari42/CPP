@@ -6,59 +6,55 @@
 /*   By: razaccar <razaccar@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 02:37:11 by razaccar          #+#    #+#             */
-/*   Updated: 2025/05/24 15:47:06 by razaccar         ###   ########.fr       */
+/*   Updated: 2025/06/24 16:49:32 by razaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <algorithm>
+#include <cstddef>
 #include <iostream>
 #include <fstream>
 #include <ostream>
-#include <string>
 #include <sstream>
+#include <string>
 
-std::string load_file(const std::string& filepath)
-{
-    std::ifstream src(filepath);
-    std::ostringstream buf;
-    buf << src.rdbuf();
-    return buf.str();
+#define	ERR_ARG "Error: too few arguments"
+#define	USAGE	"Usage: ./prog [file] [old] [new]"
+
+std::string	replace(const std::string& line,
+					const std::string& oldSeq,
+					const std::string& newSeq) {
+	std::stringstream newLine;
+	size_t pos = 0;
+	size_t next = 0;
+	while (pos != std::string::npos) {
+		if ((next = line.find(oldSeq, pos)) != std::string::npos)
+			newLine << line.substr(pos, next - pos) << newSeq;
+		else
+			newLine << line.substr(pos, std::string::npos);
+		pos = (next != std::string::npos) ? next + oldSeq.length() : next;
+	}
+	return newLine.str();
 }
 
 int	main(int argc, char** argv) {
-	(void)argc;
-	std::string		fileName = argv[1];
-
-	std::cout << load_file(fileName);
+	if (argc != 4) {
+		std::cout << ERR_ARG << std::endl << USAGE << std::endl;
+		return 1;
+	}
+	std::string		fileName(argv[1]);
+    std::ifstream	inFile(fileName.c_str());
+    std::ofstream	outFile((fileName + ".replace").c_str());
+    std::string		line;
+	if (!inFile.is_open()) {
+		std::cout << "error: file " << fileName << " can't be opened" << std::endl;
+		return 0;
+	}
+	while (1) {
+		std::getline(inFile, line);
+		if (inFile.eof())
+			break;
+		outFile << replace(line, argv[2], argv[3]) << std::endl;
+	}
 	return 0;
 }
 
-// int	main(int argc, char **argv) {
-// 	if (argc != 4) return 1; 
-//
-// 	std::string	fileName = argv[1];
-// 	std::string	search = argv[2];
-// 	std::string	replace = argv[3];
-//
-// 	std::ifstream	file(fileName);
-// 	fileName += ".replace";
-// 	std::ofstream	fileReplace(fileName);
-//
-// 	if (file.is_open() && fileReplace.is_open()) {
-// 		std::stringbuf		buf;
-// 		std::stringstream	line;
-// 		size_t		searchPos;
-// 		size_t		searchSize = search.length();
-// 		while (!file.eof()) {
-// 			file.getline(buf, std::string::npos);
-// 			while ((searchPos = buf.find(search)) != buf.npos) {
-// 				line.assign(buf, 0, searchPos - 1);
-// 				line += replace;
-// 				buf = buf.substr(searchPos + searchSize);
-// 			}
-// 			fileReplace << line << '\n';
-// 			line.clear();
-// 		}
-// 		file.close();
-// 	}
-// }
