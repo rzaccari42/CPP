@@ -6,7 +6,7 @@
 /*   By: razaccar <razaccar@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 02:37:11 by razaccar          #+#    #+#             */
-/*   Updated: 2025/06/24 16:49:32 by razaccar         ###   ########.fr       */
+/*   Updated: 2025/06/26 18:54:40 by razaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,17 @@ std::string	replace(const std::string& line,
 
 int	main(int argc, char** argv) {
 	if (argc != 4) {
-		std::cout << ERR_ARG << std::endl << USAGE << std::endl;
+		std::cerr << ERR_ARG << std::endl << USAGE << std::endl;
 		return 1;
 	}
 	std::string		fileName(argv[1]);
     std::ifstream	inFile(fileName.c_str());
+	if (!inFile.is_open()) {
+		std::cerr << "error: file " << fileName << " can't be opened" << std::endl;
+		return 1;
+	}
     std::ofstream	outFile((fileName + ".replace").c_str());
     std::string		line;
-	if (!inFile.is_open()) {
-		std::cout << "error: file " << fileName << " can't be opened" << std::endl;
-		return 0;
-	}
 	while (1) {
 		std::getline(inFile, line);
 		if (inFile.eof())

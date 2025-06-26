@@ -6,7 +6,7 @@
 /*   By: razaccar <razaccar@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 21:10:08 by razaccar          #+#    #+#             */
-/*   Updated: 2025/05/15 02:31:58 by razaccar         ###   ########.fr       */
+/*   Updated: 2025/06/26 19:17:16 by razaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 #include "HumanB.hpp"
 
 int main() {
+	{
+		HumanB	jon("Jon");
+		jon.attack();
+		Weapon  club = Weapon("crude spiked club");
+		jon.setWeapon(club);
+		jon.attack();
+	}
 	{
 		Weapon  club = Weapon("crude spiked club");
 		HumanA	bob("Bob", club);
