@@ -6,11 +6,11 @@
 #    By: razaccar <razaccar@student.42lausanne.ch>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/12 20:56:39 by razaccar          #+#    #+#              #
-#    Updated: 2025/06/25 16:30:25 by razaccar         ###   ########.fr        #
+#    Updated: 2025/06/22 23:26:16 by razaccar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Premiers_pas_pour_une_classe_utile
+NAME = Maintenant_on_peut_parler
 
 SRCS = main.cpp Fixed.cpp 
 OBJS = ${SRCS:.cpp=.o}
@@ -34,4 +34,4 @@ clean:
 fclean: clean
 	$(RM) $(NAME) 
 
-re: clean all
+re: fclean all
