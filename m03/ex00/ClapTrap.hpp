@@ -1,0 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: razaccar <razaccar@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/12 21:33:01 by razaccar          #+#    #+#             */
+/*   Updated: 2025/06/29 16:41:17 by razaccar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#pragma once 
+
+#include <string>
+
+class ClapTrap {
+	public:
+		ClapTrap();
+		ClapTrap(const std::string& name);
+		ClapTrap(const ClapTrap& other);
+		~ClapTrap();
+
+        ClapTrap& operator=(const ClapTrap& other);
+
+		const std::string&	getName(void) const;
+		const int&			getHitPoints(void) const;
+		const unsigned int&	getEnergyPoint(void) const;
+		const unsigned int&	getAttackDamage(void) const;
+
+		void	attack(const std::string& target);
+		void	takeDamage(unsigned int amount);
+		void	beRepaired(unsigned int amount);
+	private:
+		std::string		name_;
+		int				hitPoints_;
+		unsigned int	energyPoints_;
+		unsigned int	attackDamage_;
+};
