@@ -6,7 +6,7 @@
 /*   By: razaccar <razaccar@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 21:39:30 by razaccar          #+#    #+#             */
-/*   Updated: 2025/06/24 11:46:53 by razaccar         ###   ########.fr       */
+/*   Updated: 2025/06/30 22:50:04 by razaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,16 @@ const unsigned int&	ClapTrap::getAttackDamage(void) const {
 }
 
 void	ClapTrap::attack(const std::string& target) {
-	if (this->energyPoints_ == 0 || this->hitPoints_ == 0)
+	if (this->energyPoints_ == 0) {
+		std::cout << "ClapTrap " << this->name_;
+		std::cout << " has no more energy points." << std::endl;
 		return;
+	}
+	if (this->hitPoints_ == 0) {
+		std::cout << "ClapTrap " << this->name_;
+		std::cout << " has no more HP." << std::endl;
+		return;
+	}
 	this->energyPoints_--;
 	std::cout << ">>>>>>>>>>" << std::endl;
 	std::cout << "ClapTrap " << this->name_;
@@ -87,8 +95,16 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 }
 
 void	ClapTrap::beRepaired(unsigned int amount) {
-	if (this->energyPoints_ == 0 || this->hitPoints_ == 0)
+	if (this->energyPoints_ == 0) {
+		std::cout << "ClapTrap " << this->name_;
+		std::cout << " has no more energy points." << std::endl;
 		return;
+	}
+	if (this->hitPoints_ == 0) {
+		std::cout << "ClapTrap " << this->name_;
+		std::cout << " has no more HP." << std::endl;
+		return;
+	}
 	this->hitPoints_ += amount;
 	this->energyPoints_--;
 	std::cout << "++++++++++" << std::endl;
