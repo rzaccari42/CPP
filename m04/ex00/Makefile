@@ -6,13 +6,13 @@
 #    By: razaccar <razaccar@student.42lausanne.ch>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/27 02:28:08 by razaccar          #+#    #+#              #
-#    Updated: 2025/06/27 04:13:16 by razaccar         ###   ########.fr        #
+#    Updated: 2025/07/02 19:14:36 by razaccar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Animal
 
-SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp
+SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 OBJS = ${SRCS:.cpp=.o}
 
 CXX = c++

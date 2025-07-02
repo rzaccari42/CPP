@@ -6,7 +6,7 @@
 /*   By: razaccar <razaccar@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 01:53:57 by razaccar          #+#    #+#             */
-/*   Updated: 2025/06/30 22:12:33 by razaccar         ###   ########.fr       */
+/*   Updated: 2025/07/02 19:28:08 by razaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 int main()
 {
-	AAnimal		a;
+	// AAnimal		a;
 	AAnimal*	animals[ANIMALS_NB];	
 
 	for (size_t i = 0; i < ANIMALS_NB; ++i) {
