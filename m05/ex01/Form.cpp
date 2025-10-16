@@ -6,7 +6,7 @@
 /*   By: razaccar <razaccar@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 00:34:15 by razaccar          #+#    #+#             */
-/*   Updated: 2025/07/27 14:29:04 by razaccar         ###   ########.fr       */
+/*   Updated: 2025/10/16 17:46:13 by razaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ Form::Form(std::string const& name,
 }
 
 Form::Form(Form const& other) : 
-	Form(other.name_, other.signGrade_, other.execGrade_) {}
+	name_(other.name_),
+	signGrade_(other.signGrade_),
+	execGrade_(other.execGrade_) {}
 
 Form::~Form() {}
 
