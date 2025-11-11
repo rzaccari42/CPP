@@ -6,7 +6,7 @@
 /*   By: razaccar <razaccar@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 18:03:10 by razaccar          #+#    #+#             */
-/*   Updated: 2025/11/11 19:15:38 by razaccar         ###   ########.fr       */
+/*   Updated: 2025/11/11 19:43:52 by razaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ static Type	detectType(std::string const& literal) {
 }
 
 void	ScalarConverter::convertChar(char c) {
-	std::cout << "char: " << "'" << c << "'" << std::endl;
+	if (c <= 32 || c >= 126) std::cout << "Non displayable" << std::endl;
+	else std::cout << "char: " << "'" << c << "'" << std::endl;
 	std::cout << "int: " << static_cast<int>(c) <<std::endl;
 	std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
 	std::cout << "double: " << static_cast<double>(c) << ".0" << std::endl;
@@ -85,7 +86,7 @@ void	ScalarConverter::convertChar(char c) {
 void	ScalarConverter::convertInt(long i) {
 	std::cout << "char: ";
 	if (i < 0 || i > 127) std::cout << "Out of bounds" << std::endl;
-	else if (isprint(i) == false) std::cout << "Non displayable" << std::endl;
+	else if (isprint(i) == false || i <= 32) std::cout << "Non displayable" << std::endl;
 	else std::cout << "'" << static_cast<char>(i) << "'" << std::endl;
 	std::cout << "int: ";
 	if (i < INT_MIN || i > INT_MAX) std::cout << "Out of bounds" << std::endl;
@@ -97,7 +98,7 @@ void	ScalarConverter::convertInt(long i) {
 void	ScalarConverter::convertFloat(float f) {
 	std::cout << "char: ";
 	if (f < 0 || f > 127) std::cout << "Out of bounds" << std::endl;
-	else if (isprint(static_cast<int>(f)) == false) std::cout << "Non displayable" << std::endl;
+	else if (isprint(static_cast<int>(f)) == false || f <= 32) std::cout << "Non displayable" << std::endl;
 	else std::cout << "'" << static_cast<char>(f) << "'" << std::endl;
 	std::cout << "int: ";
 	if (f < INT_MIN || f > (float)INT_MAX) std::cout << "Out of bounds" << std::endl;
@@ -109,7 +110,7 @@ void	ScalarConverter::convertFloat(float f) {
 void	ScalarConverter::convertDouble(double d) {
 	std::cout << "char: ";
 	if (d < 0 || d > 127) std::cout << "Out of bounds" << std::endl;
-	else if (isprint(static_cast<float>(d)) == false) std::cout << "Non displayable" << std::endl;
+	else if (isprint(static_cast<float>(d)) == false || d <= 32) std::cout << "Non displayable" << std::endl;
 	else std::cout << "'" << static_cast<char>(d) << "'" << std::endl;
 	std::cout << "int: ";
 	if (d < INT_MIN || d > (double)INT_MAX) std::cout << "Out of bounds" << std::endl;
