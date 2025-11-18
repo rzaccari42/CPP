@@ -6,7 +6,7 @@
 /*   By: razaccar <razaccar@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 18:03:10 by razaccar          #+#    #+#             */
-/*   Updated: 2025/11/11 19:43:52 by razaccar         ###   ########.fr       */
+/*   Updated: 2025/11/11 20:01:10 by razaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void	ScalarConverter::convertInt(long i) {
 }
 
 void	ScalarConverter::convertFloat(float f) {
+	std::cout << "debug" << std::endl;
 	std::cout << "char: ";
 	if (f < 0 || f > 127) std::cout << "Out of bounds" << std::endl;
 	else if (isprint(static_cast<int>(f)) == false || f <= 32) std::cout << "Non displayable" << std::endl;
