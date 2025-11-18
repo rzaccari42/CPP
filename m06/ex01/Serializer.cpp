@@ -6,7 +6,7 @@
 /*   By: razaccar <razaccar@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 19:25:30 by razaccar          #+#    #+#             */
-/*   Updated: 2025/09/29 17:26:01 by razaccar         ###   ########.fr       */
+/*   Updated: 2025/11/18 16:37:00 by razaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,16 @@
 
 Serializer::Serializer() {}
 
-Serializer::Serializer(Serializer const& other) {}
+Serializer::Serializer(Serializer const& other) {
+	(void)other;
+}
 
 Serializer::~Serializer() {}
 
-Serializer&	Serializer::operator=(Serializer const& rhs) { return *this; }
+Serializer&	Serializer::operator=(Serializer const& rhs) {
+	(void)rhs;
+	return *this;
+}
 
 uintptr_t	Serializer::serialize(Data* ptr) {
 	return reinterpret_cast<uintptr_t>(ptr);
