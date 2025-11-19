@@ -6,7 +6,7 @@
 /*   By: razaccar <razaccar@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 19:42:51 by razaccar          #+#    #+#             */
-/*   Updated: 2025/09/25 19:10:32 by razaccar         ###   ########.fr       */
+/*   Updated: 2025/11/19 16:36:42 by razaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,31 @@ Base*	generate() {
 }
 
 void	identify(Base* ptr) {
-	if (dynamic_cast<A*>(ptr)) {
-		std::cout << "pointer to derived A class" << std::endl;
-	} else if (dynamic_cast<B*>(ptr)) {
-		std::cout << "pointer to derived B class" << std::endl;
-	} else if (dynamic_cast<C*>(ptr)) {
-		std::cout << "pointer to derived C class" << std::endl;
+	try {
+		if (dynamic_cast<A*>(ptr)) {
+			std::cout << "pointer to derived A class" << std::endl;
+		} else if (dynamic_cast<B*>(ptr)) {
+			std::cout << "pointer to derived B class" << std::endl;
+		} else if (dynamic_cast<C*>(ptr)) {
+			std::cout << "pointer to derived C class" << std::endl;
+		} else
+			std::cout << "not derived from base" << std::endl;
+	} catch (std::exception const &e) {
+		std::cout << e.what() << std::endl;
 	}
 }
 
 void	identify(Base& ptr) {
-	if (dynamic_cast<A*>(&ptr)) {
-		std::cout << "reference to derived A class" << std::endl;
-	} else if (dynamic_cast<B*>(&ptr)) {
-		std::cout << "reference to derived B class" << std::endl;
-	} else if (dynamic_cast<C*>(&ptr)) {
-		std::cout << "reference to derived C class" << std::endl;
+	try {
+		if (dynamic_cast<A*>(&ptr)) {
+			std::cout << "reference to derived A class" << std::endl;
+		} else if (dynamic_cast<B*>(&ptr)) {
+			std::cout << "reference to derived B class" << std::endl;
+		} else if (dynamic_cast<C*>(&ptr)) {
+			std::cout << "reference to derived C class" << std::endl;
+		} else
+			std::cout << "not derived from base" << std::endl;
+	} catch (std::exception const &e) {
+		std::cout << e.what() << std::endl;
 	}
 }

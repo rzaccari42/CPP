@@ -6,7 +6,7 @@
 /*   By: razaccar <razaccar@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 18:03:10 by razaccar          #+#    #+#             */
-/*   Updated: 2025/11/11 20:01:10 by razaccar         ###   ########.fr       */
+/*   Updated: 2025/11/19 16:26:33 by razaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,13 +96,12 @@ void	ScalarConverter::convertInt(long i) {
 }
 
 void	ScalarConverter::convertFloat(float f) {
-	std::cout << "debug" << std::endl;
 	std::cout << "char: ";
 	if (f < 0 || f > 127) std::cout << "Out of bounds" << std::endl;
 	else if (isprint(static_cast<int>(f)) == false || f <= 32) std::cout << "Non displayable" << std::endl;
 	else std::cout << "'" << static_cast<char>(f) << "'" << std::endl;
 	std::cout << "int: ";
-	if (f < INT_MIN || f > (float)INT_MAX) std::cout << "Out of bounds" << std::endl;
+	if (f < (float)INT_MIN || f > (float)INT_MAX) std::cout << "Out of bounds" << std::endl;
 	else std::cout << static_cast<int>(f) << std::endl;
 	std::cout << "float: " << f << "f" << std::endl;
 	std::cout << "double: " << static_cast<double>(f) << std::endl;
@@ -114,11 +113,10 @@ void	ScalarConverter::convertDouble(double d) {
 	else if (isprint(static_cast<float>(d)) == false || d <= 32) std::cout << "Non displayable" << std::endl;
 	else std::cout << "'" << static_cast<char>(d) << "'" << std::endl;
 	std::cout << "int: ";
-	if (d < INT_MIN || d > (double)INT_MAX) std::cout << "Out of bounds" << std::endl;
+	if (d < (double)INT_MIN || d > (double)INT_MAX) std::cout << "Out of bounds" << std::endl;
 	else std::cout << static_cast<int>(d) << std::endl;
 	std::cout << "float: ";
-	if (d < FLT_MIN || d > (double)FLT_MAX) std::cout << "Out of bounds" << std::endl;
-	else std::cout << static_cast<float>(d) << std::endl;
+	std::cout << static_cast<float>(d) << "f" << std::endl;
 	std::cout << "double: " << d << std::endl;
 }
 
