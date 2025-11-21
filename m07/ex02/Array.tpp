@@ -6,7 +6,7 @@
 /*   By: razaccar <razaccar@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 22:48:10 by razaccar          #+#    #+#             */
-/*   Updated: 2025/10/01 00:31:25 by razaccar         ###   ########.fr       */
+/*   Updated: 2025/11/19 22:59:30 by razaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,3 @@ template <typename T>
 size_t	Array<T>::size() const {
 	return size_;
 };
-
-template <typename T>
-T*	Array<T>::getArray() const {
-	return array_;
-}

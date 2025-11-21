@@ -6,7 +6,7 @@
 /*   By: razaccar <razaccar@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 21:39:40 by razaccar          #+#    #+#             */
-/*   Updated: 2025/09/30 22:57:48 by razaccar         ###   ########.fr       */
+/*   Updated: 2025/11/19 22:59:18 by razaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ class Array {
 		T&			operator[](size_t index);
 		T const&	operator[](size_t index) const;
 
-		T*		getArray() const; 
-		size_t	size() const;
+		size_t		size() const;
 
 		class OutOfBoundsException;
 
@@ -47,19 +46,3 @@ class Array<T>::OutOfBoundsException : public std::exception {
 };
 
 #include "Array.tpp"
-
-template <typename T>
-void iter(T* arr, size_t lenght, void (*f)(T&)) {
-	if (!arr) return;
-	for (size_t i = 0; i < lenght; ++i) {
-		f(arr[i]);
-	}
-}
-
-template <typename T>
-void iter(T const* arr, size_t lenght, void (*f)(T const&)) {
-	if (!arr) return;
-	for (size_t i = 0; i < lenght; ++i) {
-		f(arr[i]);
-	}
-}

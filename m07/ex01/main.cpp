@@ -6,7 +6,7 @@
 /*   By: razaccar <razaccar@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 15:15:11 by razaccar          #+#    #+#             */
-/*   Updated: 2025/09/29 23:19:41 by razaccar         ###   ########.fr       */
+/*   Updated: 2025/11/19 18:08:26 by razaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void incrementInt(int& data) {
 
 int	main() {
 	// std::string arr[] = {"hello", "world", "42"};
+	char s[] = {'a', 'b', 'c', 'd'};
 	int arr[] = {22, 42, 420};
 	int const carr[] = {22, 42, 420};
 

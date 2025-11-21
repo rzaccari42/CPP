@@ -6,7 +6,7 @@
 /*   By: razaccar <razaccar@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 02:13:03 by razaccar          #+#    #+#             */
-/*   Updated: 2025/09/29 17:36:02 by razaccar         ###   ########.fr       */
+/*   Updated: 2025/11/19 17:56:22 by razaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void swap(T& x, T& y) {
 }
 
 template<typename T>
-T min(T& x, T& y) {
+T& min(T& x, T& y) {
 	if (x == y)
 		return y;
 	if (x < y)
@@ -29,10 +29,11 @@ T min(T& x, T& y) {
 }
 
 template<typename T>
-T max(T& x, T& y) {
+T& max(T& x, T& y) {
 	if (x == y)
 		return y;
 	if (x > y)
 		return x;
 	return y;
 }
+
