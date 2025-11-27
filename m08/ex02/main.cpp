@@ -6,29 +6,13 @@
 /*   By: razaccar <razaccar@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 16:45:47 by razaccar          #+#    #+#             */
-/*   Updated: 2025/09/06 20:55:32 by razaccar         ###   ########.fr       */
+/*   Updated: 2025/11/24 03:02:49 by razaccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
 #include <iostream>
 #include <list>
-#include <vector>
-
-// int main() {
-// 	MutantStack<int, std::vector<int> > s;
-// 	s.push(1);
-// 	s.push(2);
-// 	s.push(4);
-// 	s.push(8);
-// 	s.push(16);
-// 	s.push(32);
-//
-// 	MutantStack<int, std::vector<int> >::iterator it;
-// 	it = s.begin();
-// 	std::cout << *(it + 4) << std::endl;
-//
-// }
 
 int main() {
 	{
